@@ -4,6 +4,12 @@
   become: true
   become_user: root
   tasks:
-    - include_role:
+    - name: Create user
+      include_role:
         name: init_setup
         tasks_from: acc_to_secm.yml
+
+    - name: Install Docker
+      include_role:
+        name: install_docker
+        tasks_from: install_docker.yml
