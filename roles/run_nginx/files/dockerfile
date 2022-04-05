@@ -1,0 +1,7 @@
+FROM nginx
+
+RUN mkdir /temp
+COPY ./files /temp
+VOLUME /temp
+
+EXPOSE 80

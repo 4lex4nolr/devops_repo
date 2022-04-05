@@ -1,0 +1,17 @@
+   - name: Create a volume
+     docker_volume:
+       name: nginx_conf
+	   
+   - name: build container image
+     docker_image:
+       name: some-content-nginx
+       build:
+         path: /home/rogovam/ansible/roles/run_nginx/dockerfile
+         source: build
+       state: present
+	   
+   - name: Run nginx
+     docker:
+       name: some-nginx
+	   ports:
+       - "8080:80"
